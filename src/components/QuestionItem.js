@@ -1,53 +1,29 @@
-import React from 'react'
+import React from "react";
 
-function QuestionItem({ question, onDelete, onUpdate }) {
-  function handleDelete() {
-    fetch(`http://localhost:4000/questions/${question.id}`, {
-      method: "DELETE",
-    })
-      .then(() => onDelete(question.id)) 
-      .catch((error) => console.error("Error deleting question:", error));
-  }
+function QuestionItem({ question, removeQuestion }) {
+  const { id, prompt, answers, correctIndex } = question
 
-  function handleCorrectAnswerChange(event) {
-    const newCorrectIndex = parseInt(event.target.value, 10);
+  const options = answers.map((answer, index) => (
+    <option key={index} value={index}>
+      {answer}
+    </option>
+  ))
 
-    fetch(`http://localhost:4000/questions/${question.id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ correctIndex: newCorrectIndex }),
-    })
-      .then((response) => {
-        if (!response.ok) throw new Error("Failed to update question");
-        return response.json();
-      })
-      .then(() => onUpdate(question.id, newCorrectIndex))
-      .catch((error) => console.error("Error updating question:", error));
+  const handleDelete = () => {
+    removeQuestion(id)
   }
 
   return (
     <li>
-      <h4>{question.prompt}</h4>
-      <ul>
-        {question.answers.map((answer, index) => (
-          <li key={index}>{answer}</li>
-        ))}
-      </ul>
+      <h4>Question {id}</h4>
+      <h5>Prompt: {prompt}</h5>
       <label>
         Correct Answer:
-        <select value={question.correctIndex} onChange={handleCorrectAnswerChange}>
-          {question.answers.map((answer, index) => (
-            <option key={index} value={index}>
-              {answer}
-            </option>
-          ))}
-        </select>
+        <select defaultValue={correctIndex}>{options}</select>
       </label>
       <button onClick={handleDelete}>Delete Question</button>
     </li>
-  );
+  )
 }
 
-export default QuestionItem
+export default QuestionItem;
