@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React,{useState} from "react";
 
-function NewQuestionForm({ onAddQuestion }) {
+function QuestionForm({ onAddQuestion }) {
   const [prompt, setPrompt] = useState("");
   const [answers, setAnswers] = useState(["", "", "", ""]);
   const [correctIndex, setCorrectIndex] = useState(0);
@@ -35,11 +35,11 @@ function NewQuestionForm({ onAddQuestion }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        onAddQuestion(data); 
-        setError(""); 
+        onAddQuestion(data);
+        setError("");
         setPrompt("");
         setAnswers(["", "", "", ""]);
-        setCorrectIndex(0); 
+        setCorrectIndex(0);
       })
       .catch((error) => {
         setError("Error creating question. Please try again.");
@@ -61,17 +61,21 @@ function NewQuestionForm({ onAddQuestion }) {
       <div>
         Answers:
         {answers.map((answer, index) => (
-          <input
-            key={index}
-            type="text"
-            value={answer}
-            onChange={(e) => {
-              const newAnswers = [...answers];
-              newAnswers[index] = e.target.value;
-              setAnswers(newAnswers);
-            }}
-            required
-          />
+          <div key={index}>
+            <label>
+              Answer {index + 1}:
+              <input
+                type="text"
+                value={answer}
+                onChange={(e) => {
+                  const newAnswers = [...answers];
+                  newAnswers[index] = e.target.value;
+                  setAnswers(newAnswers);
+                }}
+                required
+              />
+            </label>
+          </div>
         ))}
       </div>
       <label>
@@ -91,4 +95,4 @@ function NewQuestionForm({ onAddQuestion }) {
   );
 }
 
-export default NewQuestionForm;
+export default QuestionForm

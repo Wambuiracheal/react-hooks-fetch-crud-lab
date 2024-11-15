@@ -23,7 +23,7 @@ function QuestionList() {
   function handleUpdate(id, newCorrectIndex) {
     setQuestions((prevQuestions) =>
       prevQuestions.map((quiz) =>
-        quiz.id === id ? { ...quiz, correctIndex: newCorrectIndex } : q
+        quiz.id === id ? { ...quiz, correctIndex: newCorrectIndex } : quiz
       )
     );
   }

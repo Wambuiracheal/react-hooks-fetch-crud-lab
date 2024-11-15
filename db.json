@@ -45,70 +45,15 @@
       "correctIndex": 2
     },
     {
-      "prompt": "dva",
+      "prompt": "ADDDDDdda",
       "answers": [
-        "scafcd",
-        "afdv bgdh",
-        "fdvzz",
-        "dabcswgre"
+        "edafaswd",
+        "ddaxs",
+        "<AXDSADSA<",
+        "XDAz"
       ],
-      "correctIndex": 1,
+      "correctIndex": 3,
       "id": 7
-    },
-    {
-      "prompt": "dva",
-      "answers": [
-        "scafcd",
-        "afdv bgdh",
-        "fdvzz",
-        "dabcswgre"
-      ],
-      "correctIndex": 1,
-      "id": 8
-    },
-    {
-      "prompt": "who is a girl?",
-      "answers": [
-        "zf",
-        "af",
-        "fad",
-        "fas"
-      ],
-      "correctIndex": "3",
-      "id": 9
-    },
-    {
-      "prompt": "who is a girl?",
-      "answers": [
-        "zf",
-        "af",
-        "fad",
-        "fas"
-      ],
-      "correctIndex": "3",
-      "id": 10
-    },
-    {
-      "prompt": "who is a girl?",
-      "answers": [
-        "zf",
-        "af",
-        "fad",
-        "fas"
-      ],
-      "correctIndex": "3",
-      "id": 11
-    },
-    {
-      "prompt": "who is a girl?",
-      "answers": [
-        "zf",
-        "af",
-        "fad",
-        "fas"
-      ],
-      "correctIndex": "3",
-      "id": 12
     }
   ]
 }
